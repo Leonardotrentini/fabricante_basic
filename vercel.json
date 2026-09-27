@@ -3,6 +3,10 @@
     {
       "source": "/",
       "destination": "/fabricante_basic.html"
+    },
+    {
+      "source": "/vendedor",
+      "destination": "/vendedor.html"
     }
   ],
   "headers": [
