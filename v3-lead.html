@@ -300,21 +300,6 @@ if(matchMedia('(hover:hover)').matches){
 }
 </script>
 <script>
-document.addEventListener('click', function (e) {
-  var el = e.target && e.target.closest ? e.target.closest('a.cta, a.wpp') : null;
-  if (!el) return;
-  var params = {
-    content_name: el.getAttribute('data-label') || 'whatsapp_cta',
-    content_category: 'whatsapp'
-  };
-  var send = function () {
-    if (typeof fbq === 'function') fbq('track', 'Lead', params);
-  };
-  if (typeof fbq === 'function') send();
-  else addEventListener('load', send, { once: true });
-}, true);
-</script>
-<script>
 addEventListener('load',function(){
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
