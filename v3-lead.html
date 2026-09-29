@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Street Men – Seja o maior revendedor de peças masculinas na sua cidade!</title>
+<meta name="description" content="Compre direto da fábrica. Streetwear masculino no atacado com alta margem de lucro na revenda. Mínimo 6 peças. Entrega para todo o Brasil.">
+<link rel="icon" href="/fabricante_basic_files/WhatsApp-Image-2026-09-21-at-21.02.32.webp">
+<link rel="preload" as="image" href="/fabricante_basic_files/WhatsApp-Image-2026-09-21-at-21.02.32.webp" fetchpriority="high">
+</head>
+<body>
+<style>
+:root{
+  --black:#0A0A0A;
+  --black-2:#111111;
+  --gray:#585A5A;
+  --light:#D8D8D8;
+  --white:#F5F5F5;
+  --wa:#25D366;
+  --ring:rgba(216,216,216,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--black);color:var(--light);font-family:system-ui,'Segoe UI',Roboto,sans-serif;overflow-x:hidden;line-height:1.6}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#050505}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--light),var(--gray));border-radius:99px;border:2px solid #050505}
+html{scrollbar-color:var(--gray) #050505;scrollbar-width:thin}
+::selection{background:var(--light);color:var(--black)}
+#prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:999;background:linear-gradient(90deg,var(--gray),var(--light));box-shadow:0 0 14px rgba(216,216,216,.45)}
+.noise{display:none}
+.grid-bg{position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(var(--ring) 1px,transparent 1px),linear-gradient(90deg,var(--ring) 1px,transparent 1px);
+  background-size:70px 70px;
+  mask-image:radial-gradient(circle at 50% 40%,#000 0%,transparent 72%);
+  -webkit-mask-image:radial-gradient(circle at 50% 40%,#000 0%,transparent 72%);opacity:.45}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 24px}
+section{position:relative}
+
+/* HERO */
+.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 0 50px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 30%,rgba(88,90,90,.30),transparent 70%)}
+.marq-bg{position:absolute;top:50%;left:0;width:100%;transform:translateY(-50%);font-family:Impact,'Arial Black',sans-serif;font-size:clamp(90px,20vw,250px);letter-spacing:-.03em;color:transparent;-webkit-text-stroke:1.5px rgba(216,216,216,.06);white-space:nowrap;pointer-events:none;user-select:none;display:flex;gap:.35em;animation:slide 26s linear infinite;z-index:1}
+@keyframes slide{to{transform:translate(-50%,-50%)}}
+.hero-in{position:relative;z-index:4}
+.logo{width:clamp(105px,15vw,160px);margin:0 auto 24px;filter:drop-shadow(0 14px 40px rgba(0,0,0,.9));animation:float 6s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+.tag{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;padding:9px 20px;border:1px solid var(--ring);border-radius:99px;background:rgba(255,255,255,.03);backdrop-filter:blur(8px);color:var(--light);margin-bottom:24px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--light);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(216,216,216,.55)}50%{opacity:.45;box-shadow:0 0 0 9px rgba(216,216,216,0)}}
+h1{font-family:Impact,'Arial Black',sans-serif,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(2.35rem,7.6vw,5.9rem);line-height:.93;letter-spacing:-.03em;color:var(--white)}
+h1 .accent{background:linear-gradient(180deg,var(--light) 15%,var(--gray) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1 .mark{position:relative;display:inline-block;color:var(--black);z-index:1;padding:0 .06em}
+h1 .mark::after{content:"";position:absolute;left:0;right:0;top:8%;bottom:10%;background:var(--light);z-index:-1;transform:skewX(-8deg) scaleX(0);transform-origin:left;animation:mark .9s cubic-bezier(.2,.8,.2,1) .45s forwards}
+@keyframes mark{to{transform:skewX(-8deg) scaleX(1)}}
+.sub{max-width:600px;margin:26px auto 34px;color:#9a9c9c;font-size:clamp(.95rem,2vw,1.1rem)}
+.sub b{color:var(--light);font-weight:700}
+
+/* BOTÕES WHATSAPP (verde oficial) */
+.cta{position:relative;display:inline-flex;align-items:center;gap:13px;font-weight:800;font-size:14px;letter-spacing:.14em;text-transform:uppercase;padding:19px 40px;color:#04160C;background:var(--wa);border-radius:6px;overflow:hidden;cursor:pointer;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;box-shadow:0 12px 42px rgba(37,211,102,.26)}
+.cta>*{position:relative;z-index:2}
+.cta::after{content:"";position:absolute;inset:0;background:#2ff277;transform:translateY(101%);transition:transform .4s cubic-bezier(.2,.8,.2,1);z-index:1}
+.cta:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 20px 60px rgba(37,211,102,.42)}
+.cta:hover::after{transform:translateY(0)}
+.cta.ghost{background:transparent;color:var(--wa);border:1.5px solid rgba(37,211,102,.5);box-shadow:none}
+.cta.ghost::after{background:var(--wa)}
+.cta.ghost:hover{color:#04160C;box-shadow:0 18px 50px rgba(37,211,102,.32)}
+.arrow{transition:transform .3s}
+.cta:hover .arrow{transform:translateX(6px)}
+.wa-ico{width:20px;height:20px;flex:0 0 20px}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:820px;margin:58px auto 0;border-top:1px solid var(--ring);padding-top:32px;position:relative;z-index:4}
+.stat h3{font-family:Impact,'Arial Black',sans-serif;font-size:clamp(1.7rem,5vw,2.7rem);color:var(--white);line-height:1}
+.stat h3 i{font-style:normal;color:var(--gray)}
+.stat p{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gray);margin-top:8px}
+
+/* TICKER */
+.ticker{border-block:1px solid var(--ring);background:#070707;padding:15px 0;overflow:hidden;display:flex;white-space:nowrap}
+.ticker div{display:flex;gap:42px;padding-right:42px;animation:tick 22s linear infinite}
+.ticker span{font-family:Impact,'Arial Black',sans-serif;font-size:clamp(13px,2vw,18px);text-transform:uppercase;letter-spacing:.02em;color:var(--gray);display:flex;align-items:center;gap:42px}
+.ticker span::after{content:"◆";font-size:8px;color:var(--light)}
+@keyframes tick{to{transform:translateX(-100%)}}
+
+.sec{padding:clamp(70px,10vw,130px) 0}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gray);display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.eyebrow::before{content:"";width:34px;height:2px;background:var(--gray)}
+h2{font-family:Impact,'Arial Black',sans-serif,sans-serif;font-weight:400;text-transform:uppercase;color:var(--white);font-size:clamp(1.8rem,5.2vw,3.5rem);line-height:.98;letter-spacing:-.025em}
+h2 em{font-style:normal;color:var(--gray)}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px;margin-top:50px}
+.card{position:relative;padding:34px 30px;border:1px solid var(--ring);border-radius:8px;background:linear-gradient(160deg,#131313,#0B0B0B);overflow:hidden;transition:transform .5s cubic-bezier(.2,.8,.2,1),border-color .4s}
+.card::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--light),transparent);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.card:hover{transform:translateY(-8px);border-color:rgba(216,216,216,.32)}
+.card:hover::before{transform:scaleX(1)}
+.card .num{font-family:Impact,'Arial Black',sans-serif;font-size:2.5rem;color:rgba(216,216,216,.13);line-height:1}
+.card h4{font-size:1.05rem;color:var(--white);margin:14px 0 10px;font-weight:700}
+.card p{font-size:.92rem;color:#8d8f8f}
+
+/* FAIXA CTA (sem imagem de fundo) */
+.para{position:relative;display:grid;place-items:center;overflow:hidden;border-block:1px solid var(--ring);background:linear-gradient(180deg,#0C0C0C,#080808)}
+.para .grid-bg{opacity:.6}
+.para-in{position:relative;text-align:center;padding:clamp(80px,11vw,140px) 24px;z-index:3}
+.para h2{font-size:clamp(2rem,6.6vw,4.6rem)}
+.para p{color:#9a9c9c;max-width:520px;margin:18px auto 30px}
+.strap{position:absolute;left:-6%;right:-6%;top:50%;height:70px;transform:translateY(-50%) rotate(-3deg);background:repeating-linear-gradient(90deg,rgba(216,216,216,.05) 0 2px,transparent 2px 26px);pointer-events:none}
+
+/* DEPOIMENTOS */
+.deps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:46px}
+.dep{position:relative;border:1px solid var(--ring);border-radius:8px;overflow:hidden;background:#0d0d0d;transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s,border-color .4s}
+.dep img{width:100%;height:100%;object-fit:cover;aspect-ratio:9/13;transition:transform .8s cubic-bezier(.2,.8,.2,1),filter .5s;filter:brightness(.95)}
+.dep:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,.7);border-color:rgba(216,216,216,.32)}
+.dep:hover img{transform:scale(1.06);filter:brightness(1.05)}
+.dep .badge{position:absolute;bottom:14px;left:14px;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;background:rgba(10,10,10,.85);border:1px solid var(--ring);padding:7px 13px;border-radius:99px;backdrop-filter:blur(6px);color:var(--light)}
+
+/* STEPS */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;margin-top:50px;background:var(--ring);border:1px solid var(--ring);border-radius:8px;overflow:hidden}
+.step{background:var(--black-2);padding:34px 26px;transition:background .4s}
+.step:hover{background:#181818}
+.step .k{font-family:Impact,'Arial Black',sans-serif;font-size:11px;letter-spacing:.2em;color:var(--gray)}
+.step h4{font-family:Impact,'Arial Black',sans-serif;font-size:1.25rem;color:var(--white);text-transform:uppercase;letter-spacing:-.02em;margin:12px 0 8px}
+.step p{font-size:.88rem;color:#8d8f8f}
+
+.final{text-align:center;padding:clamp(80px,12vw,150px) 0;overflow:hidden;background:radial-gradient(70% 90% at 50% 100%,rgba(88,90,90,.30),transparent 70%)}
+.final h2{font-size:clamp(2.1rem,7.4vw,5rem)}
+.final p{color:#9a9c9c;max-width:520px;margin:20px auto 36px}
+footer{border-top:1px solid var(--ring);padding:34px 0;text-align:center;font-size:12px;color:var(--gray);letter-spacing:.08em}
+.ticker,.sec,.para,.final,footer{content-visibility:auto;contain-intrinsic-size:auto 720px}
+
+.wpp{position:fixed;right:18px;bottom:18px;z-index:50;display:flex;align-items:center;gap:10px;background:var(--wa);color:#04160C;padding:14px 20px;border-radius:99px;font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 12px 40px rgba(37,211,102,.33);transition:transform .35s,background .3s;opacity:0;pointer-events:none}
+.wpp.on{opacity:1;pointer-events:auto}
+.wpp:hover{transform:translateY(-3px) scale(1.05);background:#2ff277}
+.wpp::before{content:"";position:absolute;inset:0;border-radius:99px;border:1px solid rgba(37,211,102,.6);animation:ripple 2.4s infinite}
+@keyframes ripple{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.35);opacity:0}}
+
+.rv{opacity:0;transform:translateY(38px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}h1 .mark::after{transform:skewX(-8deg)}}
+@media(max-width:600px){.stats{gap:6px}.cta{padding:18px 24px;font-size:12px;width:100%;justify-content:center}.wpp{padding:12px 16px}}
+</style>
+
+
+<!-- Ícone oficial WhatsApp (sprite SVG) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wa-glyph" viewBox="0 0 32 32">
+    <path d="M16.04 3C8.85 3 3 8.85 3 16.04c0 2.3.6 4.55 1.75 6.53L3 29l6.6-1.73a13 13 0 006.44 1.68h.01C23.24 28.95 29 23.1 29 15.91 29 8.72 23.23 3 16.04 3zm0 23.35a10.8 10.8 0 01-5.5-1.5l-.4-.24-4.07 1.07 1.09-3.97-.26-.41a10.78 10.78 0 01-1.66-5.76c0-5.97 4.86-10.83 10.84-10.83 5.97 0 10.8 4.86 10.8 10.83 0 5.98-4.87 10.81-10.84 10.81zm5.94-8.1c-.33-.16-1.95-.96-2.25-1.07-.3-.11-.52-.16-.74.17-.22.33-.86 1.07-1.05 1.29-.2.22-.39.25-.72.08a8.85 8.85 0 01-2.6-1.6 9.8 9.8 0 01-1.8-2.24c-.19-.33-.02-.51.14-.68.15-.15.5-.58.75-.87.09-.11.15-.2.22-.33.11-.22.05-.42-.03-.58-.08-.17-.72-1.79-1-2.44-.26-.64-.53-.56-.73-.57h-.63c-.22 0-.58.08-.88.41-.3.33-1.15 1.12-1.15 2.74 0 1.61 1.18 3.17 1.34 3.39.16.22 2.27 3.63 5.58 4.95 3.31 1.31 3.31.87 3.91.82.6-.06 1.94-.8 2.22-1.57.27-.77.27-1.42.19-1.56-.08-.14-.3-.22-.63-.38z"></path>
+  </symbol>
+</svg>
+
+<div id="prog" style="width: 0%;"></div>
+<div class="noise"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="grid-bg"></div>
+  <div class="marq-bg" aria-hidden="true"><span>FABRICABASICMEN&nbsp;◆&nbsp;ATACADO&nbsp;◆&nbsp;STREETWEAR&nbsp;◆</span><span>FABRICABASICMEN&nbsp;◆&nbsp;ATACADO&nbsp;◆&nbsp;STREETWEAR&nbsp;◆</span></div>
+  <div class="wrap hero-in">
+    <img class="logo" src="/fabricante_basic_files/WhatsApp-Image-2026-09-21-at-21.02.32.webp" alt="Street Men" width="160" height="160" fetchpriority="high">
+    <div class="tag rv in" style="transition-delay: 0ms;"><i class="dot"></i> RJ · Atacado para todo o Brasil</div>
+    <h1 class="rv in" style="transition-delay: 70ms;">Compre já direto<br>da fábrica, <span class="mark">alta margem</span><br><span class="accent">de lucro na revenda</span></h1>
+    <p class="sub rv in" style="transition-delay: 140ms;">As melhores peças streetwear do mercado, com <b>alta qualidade e preço justo</b> — garantindo sucesso na sua revenda.</p>
+    <a class="cta rv btn-whatsapp-rotator in" data-label="hero_cta" data-source="lp_fabricabasicmen_v2" href="https://chat.whatsapp.com/FXKkvUIKadvLRY3wC8qU1D?s=cl&amp;p=a&amp;ilr=4&amp;iam=1" target="_blank" rel="noopener" style="transition-delay: 210ms;">
+      <svg class="wa-ico" fill="currentColor" aria-hidden="true"><use href="#wa-glyph"></use></svg>
+      <span>Entrar no grupo VIP</span><span class="arrow">→</span>
+    </a>
+    <div class="stats">
+      <div class="stat rv in" style="transition-delay: 0ms;"><h3><i>+</i><span data-c="4">4</span></h3><p>Anos de mercado</p></div>
+      <div class="stat rv in" style="transition-delay: 70ms;"><h3><span data-c="100">100</span><i>%</i></h3><p>Atacado para lojistas</p></div>
+      <div class="stat rv in" style="transition-delay: 140ms;"><h3>BR</h3><p>Entrega para todo Brasil</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div><span>Envio em 1 a 3 dias</span><span>Preço de fábrica</span><span>Camisas · Bags · Bermudas</span><span>+4 anos de mercado</span><span>Sem burocracia</span><span>Rio de Janeiro</span></div>
+  <div><span>Envio em 1 a 3 dias</span><span>Preço de fábrica</span><span>Camisas · Bags · Bermudas</span><span>+4 anos de mercado</span><span>Sem burocracia</span><span>Rio de Janeiro</span></div>
+</div>
+
+<!-- DIFERENCIAIS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="rv in" style="transition-delay: 0ms;">
+      <div class="eyebrow">Por que FABRICABASICMEN</div>
+      <h2>A diferença que fazemos<br><em>no seu negócio</em></h2>
+    </div>
+    <div class="cards">
+      <div class="card rv in" style="transition-delay: 0ms;"><div class="num">01</div><h4>Exclusividade e variedade</h4><p>Gama completa de peças streetwear que atendem todos os gostos do público masculino.</p></div>
+      <div class="card rv in" style="transition-delay: 70ms;"><div class="num">02</div><h4>Parceria de confiança</h4><p>Envios rápidos em 1 a 3 dias e política de satisfação assegurada. Seu sucesso é o nosso compromisso.</p></div>
+      <div class="card rv in" style="transition-delay: 140ms;"><div class="num">03</div><h4>Qualidade garantida</h4><p>Tecidos de alta qualidade e acabamento impecável. Cada peça é uma promessa de satisfação.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAIXA CTA -->
+<section class="para">
+  <div class="grid-bg"></div>
+  <div class="strap" aria-hidden="true"></div>
+  <div class="para-in">
+    <h2 class="rv in" style="transition-delay: 0ms;">Estilo que vende<br><em>todos os dias</em></h2>
+    <p class="rv in" style="transition-delay: 0ms;">Peças que definem tendência, giram rápido na prateleira e constroem clientes fiéis.</p>
+    <a class="cta ghost rv btn-whatsapp-rotator in" data-label="parallax_cta" data-source="lp_streetmen_v2" href="https://chat.whatsapp.com/FXKkvUIKadvLRY3wC8qU1D?s=cl&amp;p=a&amp;ilr=4&amp;iam=1" target="_blank" rel="noopener" style="transition-delay: 0ms;">
+      <svg class="wa-ico" fill="currentColor" aria-hidden="true"><use href="#wa-glyph"></use></svg>
+      <span>Ver catálogo no grupo</span><span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="rv in" style="transition-delay: 0ms;">
+      <div class="eyebrow">Depoimentos reais</div>
+      <h2>Parceiros que vendem<br><em>todos os dias</em></h2>
+    </div>
+    <div class="deps">
+      <div class="dep rv in" style="transition-delay: 0ms;"><img decoding="async" src="/fabricante_basic_files/11.jpg" alt="Depoimento de lojista parceiro" loading="lazy"><span class="badge">Lojista parceiro</span></div>
+      <div class="dep rv in" style="transition-delay: 70ms;"><img decoding="async" src="/fabricante_basic_files/01.jpg" alt="Depoimento de cliente" loading="lazy"><span class="badge">Compra aprovada</span></div>
+      <div class="dep rv in" style="transition-delay: 140ms;"><img decoding="async" src="/fabricante_basic_files/08.jpg" alt="Feedback de revendedor" loading="lazy"><span class="badge">Revenda lucrativa</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="rv in" style="transition-delay: 0ms;">
+      <div class="eyebrow">Simples assim</div>
+      <h2>Comece a revender<br><em>em 3 passos</em></h2>
+    </div>
+    <div class="steps">
+      <div class="step rv in" style="transition-delay: 0ms;"><div class="k">PASSO 01</div><h4>Entre no grupo</h4><p>Acesso imediato ao grupo VIP com catálogo, lançamentos e promoções semanais.</p></div>
+      <div class="step rv in" style="transition-delay: 70ms;"><div class="k">PASSO 02</div><h4>Escolha as peças</h4><p>Mínimo de apenas 6 peças para começar. Preço direto de fábrica, sem intermediários.</p></div>
+      <div class="step rv in" style="transition-delay: 140ms;"><div class="k">PASSO 03</div><h4>Receba e lucre</h4><p>Envio em 1 a 3 dias para todo o Brasil. Você revende com alta margem.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <div class="grid-bg"></div>
+  <div class="wrap" style="position:relative;z-index:3">
+    <h2 class="rv in" style="transition-delay: 0ms;">Dê um salto no sucesso<br><em>da sua loja</em></h2>
+    <p class="rv in" style="transition-delay: 0ms;">Conecte-se com a Street Men e leve sua loja ao próximo nível. Vagas limitadas no grupo VIP.</p>
+    <a class="cta rv btn-whatsapp-rotator in" data-label="final_cta" data-source="lp_streetmen_v2" href="https://chat.whatsapp.com/FXKkvUIKadvLRY3wC8qU1D?s=cl&amp;p=a&amp;ilr=4&amp;iam=1" target="_blank" rel="noopener" style="transition-delay: 0ms;">
+      <svg class="wa-ico" fill="currentColor" aria-hidden="true"><use href="#wa-glyph"></use></svg>
+      <span>Quero entrar agora</span><span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<footer>FABRICABASICMEN © <span id="y">2026</span> · Rio de Janeiro / RJ · Todos os direitos reservados</footer>
+
+<a class="wpp btn-whatsapp-rotator" id="wpp" data-label="float_wpp" data-source="lp_streetmen_v2" href="https://chat.whatsapp.com/FXKkvUIKadvLRY3wC8qU1D?s=cl&amp;p=a&amp;ilr=4&amp;iam=1" target="_blank" rel="noopener" aria-label="Grupo VIP do WhatsApp">
+  <svg class="wa-ico" fill="currentColor" aria-hidden="true"><use href="#wa-glyph"></use></svg>
+  Grupo VIP
+</a>
+
+
+<!-- UI / ANIMAÇÕES -->
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+
+const io=new IntersectionObserver(es=>es.forEach((e,i)=>{if(e.isIntersecting){
+  e.target.style.transitionDelay=(e.target.dataset.d||(i*70))+'ms';
+  e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.14});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+const co=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;const el=e.target,t=+el.dataset.c;let n=0;
+  const step=()=>{n+=Math.max(1,t/34);if(n>=t){el.textContent=t;return}
+  el.textContent=Math.floor(n);requestAnimationFrame(step)};step();co.unobserve(el);
+}),{threshold:.6});
+document.querySelectorAll('[data-c]').forEach(el=>co.observe(el));
+
+const prog=document.getElementById('prog'),wpp=document.getElementById('wpp');
+let raf,marks={25:0,50:0,75:0,90:0};
+const onScroll=()=>{
+  if(raf)return;
+  raf=requestAnimationFrame(()=>{
+    const y=window.scrollY,h=document.documentElement.scrollHeight-innerHeight,p=y/h*100;
+    prog.style.width=p+'%';
+    wpp.classList.toggle('on',y>600);
+    [25,50,75,90].forEach(m=>{if(p>=m&&!marks[m]){marks[m]=1;
+      (window.dataLayer=window.dataLayer||[]).push({event:'scroll_depth',percent:m});}});
+    raf=null;
+  });
+};
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+if(matchMedia('(hover:hover)').matches){
+  document.querySelectorAll('.card,.step').forEach(c=>{
+    c.addEventListener('pointermove',e=>{
+      const r=c.getBoundingClientRect();
+      c.style.background=`radial-gradient(420px circle at ${e.clientX-r.left}px ${e.clientY-r.top}px,rgba(216,216,216,.09),transparent 60%),linear-gradient(160deg,#131313,#0B0B0B)`;
+    });
+    c.addEventListener('pointerleave',()=>c.style.background='');
+  });
+}
+</script>
+<script>
+document.addEventListener('click', function (e) {
+  var el = e.target && e.target.closest ? e.target.closest('a.cta, a.wpp') : null;
+  if (!el) return;
+  var params = {
+    content_name: el.getAttribute('data-label') || 'whatsapp_cta',
+    content_category: 'whatsapp'
+  };
+  var send = function () {
+    if (typeof fbq === 'function') fbq('track', 'Lead', params);
+  };
+  if (typeof fbq === 'function') send();
+  else addEventListener('load', send, { once: true });
+}, true);
+</script>
+<script>
+addEventListener('load',function(){
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1105606198684625');
+fbq('track', 'PageView');
+});
+</script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=1105606198684625&ev=PageView&noscript=1"/></noscript>
+</body></html>

@@ -7,6 +7,10 @@
     {
       "source": "/vendedor",
       "destination": "/vendedor.html"
+    },
+    {
+      "source": "/v3-lead",
+      "destination": "/v3-lead.html"
     }
   ],
   "headers": [
