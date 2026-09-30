@@ -254,7 +254,7 @@ footer{border-top:1px solid var(--ring);padding:34px 0;text-align:center;font-si
 
 <a class="wpp btn-whatsapp-rotator" id="wpp" data-label="float_wpp" data-source="lp_streetmen_v2" href="https://chat.whatsapp.com/FXKkvUIKadvLRY3wC8qU1D?s=cl&amp;p=a&amp;ilr=4&amp;iam=1" target="_blank" rel="noopener" aria-label="Solicitar Catálogo">
   <svg class="wa-ico" fill="currentColor" aria-hidden="true"><use href="#wa-glyph"></use></svg>
-  Solicitar Catálogo
+  <span>Solicitar Catálogo</span><span class="arrow">→</span>
 </a>
 
 
@@ -298,6 +298,21 @@ if(matchMedia('(hover:hover)').matches){
     c.addEventListener('pointerleave',()=>c.style.background='');
   });
 }
+</script>
+<script>
+document.addEventListener('click', function (e) {
+  var el = e.target && e.target.closest ? e.target.closest('a.cta, a.wpp') : null;
+  if (!el) return;
+  var params = {
+    content_name: el.getAttribute('data-label') || 'whatsapp_cta',
+    content_category: 'whatsapp'
+  };
+  var send = function () {
+    if (typeof fbq === 'function') fbq('track', 'Lead', params);
+  };
+  if (typeof fbq === 'function') send();
+  else addEventListener('load', send, { once: true });
+}, true);
 </script>
 <script>
 addEventListener('load',function(){
