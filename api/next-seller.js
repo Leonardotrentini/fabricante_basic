@@ -10,7 +10,7 @@ const CONFIG_URL =
   "https://backend-production-7a466.up.railway.app/api/public/meta/config?key=" +
   encodeURIComponent(VESTO_KEY)
 const LP_ORIGIN = "https://fabricante-basic.vercel.app"
-const SEQ_KEY = "lp_v3_lead_seller_seq"
+const SEQ_KEY = "lp_fabricante_seller_seq"
 
 let sellersCache = { at: 0, sellers: null }
 let memorySeq = 0
