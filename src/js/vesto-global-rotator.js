@@ -40,7 +40,8 @@
     var fbp = getCookie('_fbp') || stored.fbp || null;
     var fbc = getCookie('_fbc') || stored.fbc || null;
     if (!fbclid) fbclid = fbclidFromFbc(fbc);
-    if (!fbc && fbclid) {
+    // Se a URL trouxe fbclid novo, remonta fbc — cookie antigo de outro clique quebra a atribuição.
+    if (fbclid && (!fbc || fbclidFromFbc(fbc) !== fbclid)) {
       fbc = 'fb.1.' + Date.now() + '.' + fbclid;
       try {
         document.cookie = '_fbc=' + encodeURIComponent(fbc) + '; path=/; max-age=7776000; SameSite=Lax';
