@@ -12,36 +12,87 @@
     return 'vst_' + suffix;
   }
 
-  function readMeta() {
+  function getCookie(name) {
+    try {
+      var m = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '=([^;]*)'));
+      return m ? decodeURIComponent(m[1]) : null;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  function readStoredMeta() {
     try { return JSON.parse(sessionStorage.getItem('vesto_meta') || '{}'); } catch (_) { return {}; }
+  }
+
+  function fbclidFromFbc(fbc) {
+    if (!fbc) return null;
+    var parts = String(fbc).split('.');
+    if (parts.length >= 4 && parts[0] === 'fb') return parts.slice(3).join('.') || null;
+    return null;
+  }
+
+  /** No clique: lê URL + cookies de novo (sessionStorage do load costuma chegar sem _fbp no In-App). */
+  function captureMetaAtClick() {
+    var stored = readStoredMeta();
+    var params = new URLSearchParams(location.search || '');
+    var fbclid = params.get('fbclid') || stored.fbclid || null;
+    var fbp = getCookie('_fbp') || stored.fbp || null;
+    var fbc = getCookie('_fbc') || stored.fbc || null;
+    if (!fbclid) fbclid = fbclidFromFbc(fbc);
+    if (!fbc && fbclid) {
+      fbc = 'fb.1.' + Date.now() + '.' + fbclid;
+      try {
+        document.cookie = '_fbc=' + encodeURIComponent(fbc) + '; path=/; max-age=7776000; SameSite=Lax';
+      } catch (_) {}
+    }
+    var meta = {
+      fbclid: fbclid || null,
+      fbc: fbc || null,
+      fbp: fbp || null,
+      clickAt: Date.now(),
+      pageUrl: location.href,
+      userAgent: navigator.userAgent || '',
+      utm_source: params.get('utm_source') || stored.utm_source || '',
+      utm_medium: params.get('utm_medium') || stored.utm_medium || '',
+      utm_campaign: params.get('utm_campaign') || stored.utm_campaign || '',
+      utm_content: params.get('utm_content') || stored.utm_content || '',
+      utm_term: params.get('utm_term') || stored.utm_term || '',
+    };
+    try { sessionStorage.setItem('vesto_meta', JSON.stringify(meta)); } catch (_) {}
+    return meta;
   }
 
   function wait(ms) {
     return new Promise(function (resolve) { setTimeout(resolve, ms); });
   }
 
+  function attributionBody(meta, ref, contactEventId) {
+    return JSON.stringify({
+      vestoPublicKey: VESTO_KEY,
+      ref: ref,
+      contactEventId: contactEventId,
+      fbclid: meta.fbclid || null,
+      fbc: meta.fbc || null,
+      fbp: meta.fbp || null,
+      clickAt: meta.clickAt,
+      pageUrl: meta.pageUrl,
+      userAgent: meta.userAgent,
+      utm_source: meta.utm_source || '',
+      utm_medium: meta.utm_medium || '',
+      utm_campaign: meta.utm_campaign || '',
+      utm_content: meta.utm_content || '',
+      utm_term: meta.utm_term || '',
+    });
+  }
+
   function sendAttribution(meta, ref, contactEventId) {
     var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
-    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 4000) : null;
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 8000) : null;
     return fetch(ATTRIBUTION_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'X-Vesto-Key': VESTO_KEY },
-      body: JSON.stringify({
-        vestoPublicKey: VESTO_KEY,
-        ref: ref,
-        contactEventId: contactEventId,
-        fbclid: meta.fbclid || null,
-        fbc: meta.fbc || null,
-        fbp: meta.fbp || null,
-        clickAt: meta.clickAt,
-        pageUrl: meta.pageUrl,
-        userAgent: meta.userAgent,
-        utm_source: meta.utm_source || '',
-        utm_medium: meta.utm_medium || '',
-        utm_campaign: meta.utm_campaign || '',
-        utm_content: meta.utm_content || '',
-        utm_term: meta.utm_term || '',
-      }),
+      body: attributionBody(meta, ref, contactEventId),
       credentials: 'omit',
       keepalive: true,
       signal: ctrl ? ctrl.signal : undefined,
@@ -73,10 +124,7 @@
     e.stopPropagation();
     if (e.stopImmediatePropagation) e.stopImmediatePropagation();
     busy = true;
-    var meta = readMeta();
-    meta.clickAt = Date.now();
-    meta.pageUrl = location.href;
-    meta.userAgent = navigator.userAgent || '';
+    var meta = captureMetaAtClick();
     var ref = buildRef();
     var contactEventId = 'vst_contact_' + ref.toLowerCase();
     try { sessionStorage.setItem('vesto_ref', ref); } catch (_) {}
