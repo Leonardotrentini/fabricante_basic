@@ -134,7 +134,10 @@
     try { sessionStorage.setItem('vesto_ref', ref); } catch (_) {}
     try { sessionStorage.setItem('vesto_contact_event_id', contactEventId); } catch (_) {}
     if (typeof fbq === 'function') {
+      // Contact: dedupe com CAPI do Vesto (mesmo contactEventId no POST).
       fbq('track', 'Contact', {}, { eventID: contactEventId });
+      // Lead: campanhas Ads otimizadas para Lead (coluna "Por lead").
+      fbq('track', 'Lead', {}, { eventID: 'vst_lead_' + ref.toLowerCase() });
     }
     var attributionWait = Promise.race([
       sendAttribution(meta, ref, contactEventId),
