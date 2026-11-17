@@ -11,6 +11,10 @@
     {
       "source": "/v3-lead",
       "destination": "/v3-lead.html"
+    },
+    {
+      "source": "/vendedor-grupo",
+      "destination": "/vendedor-grupo.html"
     }
   ],
   "headers": [
